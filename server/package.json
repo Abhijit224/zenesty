@@ -1,0 +1,19 @@
+{
+  "name": "zenestyserver",
+  "version": "1.0.0",
+  "description": "server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhijit224/zenesty.git"
+  },
+  "author": "avorika",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abhijit224/zenesty/issues"
+  },
+  "homepage": "https://github.com/Abhijit224/zenesty#readme"
+}
