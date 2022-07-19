@@ -1,0 +1,14 @@
+mat-card{
+    margin: auto;
+    width: 350px;
+    background-image: linear-gradient(to right,white,pink);
+}
+mat-card-header{
+    text-align: center;
+}
+.formfield{
+    margin-top: 8px;
+}
+.input{
+    width: auto;
+}

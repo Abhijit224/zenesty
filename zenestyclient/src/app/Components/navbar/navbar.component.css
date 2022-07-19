@@ -1,0 +1,24 @@
+.nav{
+    justify-content: space-around;
+    background-image: linear-gradient(to right,white,pink);
+}
+.navbar-nav {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 70px;
+    margin-bottom: 0;
+    list-style: none;
+}
+.nav-link{
+    color: black;
+}
+.nav-link:hover{
+    color: red;
+}
+
+.userProccess li a{
+    margin-right: 0px;
+}
