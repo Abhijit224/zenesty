@@ -7,11 +7,17 @@ const path=require('path')
 const { response } = require('express')
 require('dotenv').config()
 const app=express()
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use(express.json())
+
 const connection=process.env.mongodb_url
 //Router Init
 const userRouter=require('./routes/userRouter')
 //Setting Router
 app.use('/user',userRouter)
+
 
 app.listen(process.env.PORT,(error)=>{
     if(!error){

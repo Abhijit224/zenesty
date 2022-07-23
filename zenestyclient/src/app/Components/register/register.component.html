@@ -1,1 +1,60 @@
-<p>register works!</p>
+<div class='display'>
+   
+    <mat-card>
+        <mat-card-header>Register</mat-card-header>
+        <hr>
+        <mat-card-content>
+            <form class="example-form" #registerForm="ngForm" (ngSubmit)="registerUser()">
+                <div class="formfield">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>First Name</mat-label>
+                        <input type="text" name="firstName" matInput [(ngModel)]="newUser.firstName" placeholder="First Name"/>
+                    </mat-form-field>
+                </div>
+                <div class="formfield">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Last Name</mat-label>
+                        <input type="text" name="lastName" matInput [(ngModel)]="newUser.lastName" placeholder="Last Name"/>
+                    </mat-form-field>
+                </div>
+                <div class="formfield">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Email</mat-label>
+                        <input type="email" name="userEmail" matInput [(ngModel)]="newUser.userEmail" (blur)="checkEmail(newUser.userEmail)" placeholder="Email" required/>
+                    </mat-form-field>
+                </div>
+                <div class="formfield">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Mobile</mat-label>
+                        <input type="tel" name="userMobile" matInput [(ngModel)]="newUser.userMobile" placeholder="+91" required/>
+                    </mat-form-field>
+                </div>
+                <div class="formfield">
+                    <mat-form-field class="example-full-width" appearance="legacy">
+                        <mat-label>Address</mat-label>
+                        <textarea matInput name="userAddress" [(ngModel)]="newUser.userAddress" placeholder="Address"></textarea>
+                      </mat-form-field>
+                </div>
+                <div class="formfield">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Password</mat-label>
+                        <input type="password" name="userPassword1" matInput [(ngModel)]="newUser.userPassword1" placeholder="Password"/>
+                    </mat-form-field>
+                </div>
+                <div class="formfield">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Confirm Password</mat-label>
+                        <input type="password" name="userPassword2" matInput [(ngModel)]="newUser.userPassword2" (blur)="checkPassword()" placeholder="Confirm Password" required/>
+                    </mat-form-field>
+                </div>
+               <div *ngIf="checkPassword()===false">
+                <h6 style="color:red">Comfirm Password</h6>
+               </div>
+                <div class="formfield">
+                    <button mat-flat-button color="accent" *ngIf="registerForm.control.valid && checkPassword()">Register</button>
+                </div>
+            </form>
+            <hr>
+        </mat-card-content>
+    </mat-card>
+</div>

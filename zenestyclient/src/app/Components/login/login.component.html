@@ -3,17 +3,17 @@
         <mat-card-header>Login</mat-card-header>
         <hr>
         <mat-card-content>
-            <form class="example-form">
+            <form class="example-form" [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm)">
                 <div class="formfield">
                     <mat-form-field appearance="legacy">
                         <mat-label>Email</mat-label>
-                        <input type="email" matInput placeholder="Email"/>
+                        <input type="email" matInput formControlName="email" placeholder="Email"/>
                     </mat-form-field>
                 </div>
                 <div class="formfield">
                     <mat-form-field appearance="legacy">
                         <mat-label>Password</mat-label>
-                        <input type="password" matInput placeholder="Password"/>
+                        <input type="password" matInput formControlName="password" placeholder="Password"/>
                     </mat-form-field>
                 </div>
                 <div class="formfield">
