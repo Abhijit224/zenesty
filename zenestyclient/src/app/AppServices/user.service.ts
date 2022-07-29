@@ -11,6 +11,7 @@ export class UserService {
   isLogin$!: boolean;
   isRegister$!: boolean
   data: any
+  Token$:any
   constructor(
     private _http: HttpClient,
     private _router: Router,
@@ -23,7 +24,10 @@ export class UserService {
           this.isLogin$ = false
         }
         localStorage.setItem('userToken', JSON.stringify(result))
+        this.Token$= localStorage.getItem('userToken')
         this.isLogin$ = true
+        this._router.navigate([''])
+       
       })
   }
   checkUser(checkemail: any) {

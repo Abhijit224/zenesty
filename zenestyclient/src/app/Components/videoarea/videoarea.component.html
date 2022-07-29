@@ -1,1 +1,26 @@
-<p>videoarea works!</p>
+<!-- <ngb-carousel #carousel [interval]="2000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+    <ng-template ngbSlide *ngFor="let img of images; index as i">
+        <div class="carousel-caption">
+        </div>
+        <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
+            <div class="picsum-img-wrapper">
+                <img [src]="img" alt="My image {{i + 1}} description">
+            </div>
+        </a>
+    </ng-template>
+</ngb-carousel>
+<br> -->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="../../assets/bannerImages/bridal.jpeg" alt="First slide">
+        </div>
+        <div class="carousel-item">
+            <img src="../../assets/bannerImages/facial.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+            <img src="../../assets/bannerImages/beauty-spa.jpg" alt="Third slide">
+        </div>
+    </div>
+</div>
+<br>

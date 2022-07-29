@@ -1,0 +1,324 @@
+<div class="container">
+  <mat-card class="cardCategory" data-toggle="modal" data-target="#basic">
+    <img src="../../../../assets/bannerImages/planBasic.png" />
+    <mat-card-content class="cardBtn">Basic</mat-card-content>
+  </mat-card>
+  <mat-card class="cardCategory" data-toggle="modal" data-target="#standard">
+    <img src="../../../../assets/bannerImages/standard.png" />
+    <mat-card-content class="cardBtn">Standard</mat-card-content>
+  </mat-card>
+  <mat-card class="cardCategory" data-toggle="modal" data-target="#premium">
+    <img src="../../../../assets/bannerImages/premium.jpg" />
+    <mat-card-content class="cardBtn">Premium</mat-card-content>
+  </mat-card>
+  <mat-card class="cardCategory" data-toggle="modal" data-target="#gold">
+    <img src="../../../../assets/bannerImages/gold.jpg" />
+    <mat-card-content class="cardBtn">Gold</mat-card-content>
+  </mat-card>
+  <mat-card class="cardCategory" data-toggle="modal" data-target="#platimum">
+    <img src="../../../../assets/bannerImages/platinum.jpg" />
+    <mat-card-content class="cardBtn">Platinum</mat-card-content>
+  </mat-card>
+</div>
+<br />
+<!-- Basic Modal -->
+<div
+  class="modal fade"
+  id="basic"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Choose any five in 1350 &#x20B9;</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true"><i class="fa-solid fa-backward"></i></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <mat-card>
+          <mat-card-content>
+            <form #package="ngForm">
+              <div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col"></th>
+                      <th scope="col">Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of basicPackage; let i = index">
+                      <th scope="row">{{ i + 1 }}</th>
+                      <td>
+                        <mat-checkbox
+                          name="{{ item }}"
+                          value="{{ item.name }}"
+                          [(ngModel)]="item.isSelected"
+                          (change)="onchangeBasicPackage($event)"
+                        ></mat-checkbox>
+                      </td>
+                      <td>{{ item.name }}</td>
+                     </tr>
+                  </tbody>
+                </table>
+              </div>
+            <button class="btn btn-primary" (click)="basicPackageOrder()">Add To Cart</button>
+            </form>
+          </mat-card-content>
+          <a (click)="goToHome()" data-dismiss="modal"><i class="fa-solid fa-backward"></i> back to category</a>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Standard Modal -->
+<div
+  class="modal fade"
+  id="standard"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Choose any six in 1950 &#x20B9;</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+        <span aria-hidden="true"><i class="fa-solid fa-backward"></i></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <mat-card>
+          <mat-card-content>
+            <form #package="ngForm">
+              <div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col"></th>
+                      <th scope="col">Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of standardPackage; let i = index">
+                      <th scope="row">{{ i + 1 }}</th>
+                      <td>
+                        <mat-checkbox
+                          name="{{ item }}"
+                          value="{{ item.name }}"
+                          [(ngModel)]="item.isSelected"
+                          (change)="onchangeStandardPackage($event)"
+                        ></mat-checkbox>
+                      </td>
+                      <td>{{ item.name }}</td>
+                     </tr>
+                  </tbody>
+                </table>
+              </div>
+            <button class="btn btn-primary" (click)="standardPackageOrder()">Add To Cart</button>
+            </form>
+          </mat-card-content>
+          <a (click)="goToHome()" data-dismiss="modal"><i class="fa-solid fa-backward"></i> back to category</a>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Premium Modal -->
+<div
+  class="modal fade"
+  id="premium"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Choose any seven in 2850 &#x20B9;</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+        <span aria-hidden="true"><i class="fa-solid fa-backward"></i></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <mat-card>
+          <mat-card-content>
+            <form #package="ngForm">
+              <div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col"></th>
+                      <th scope="col">Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of premiumPackage; let i = index">
+                      <th scope="row">{{ i + 1 }}</th>
+                      <td>
+                        <mat-checkbox
+                          name="{{ item }}"
+                          value="{{ item.name }}"
+                          [(ngModel)]="item.isSelected"
+                          (change)="onchangePremiumPackage($event)"
+                        ></mat-checkbox>
+                      </td>
+                      <td>{{ item.name }}</td>
+                     </tr>
+                  </tbody>
+                </table>
+              </div>
+            <button class="btn btn-primary" (click)="premiumPackageOrder()">Add To Cart</button>
+            </form>
+          </mat-card-content>
+          <a (click)="goToHome()" data-dismiss="modal"><i class="fa-solid fa-backward"></i> back to category</a>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Gold Modal -->
+<div
+  class="modal fade"
+  id="gold"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Choose any eight in 3050 &#x20B9;</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+        <span aria-hidden="true"><i class="fa-solid fa-backward"></i></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <mat-card>
+          <mat-card-content>
+            <form #package="ngForm">
+              <div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col"></th>
+                      <th scope="col">Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of goldPackage; let i = index">
+                      <th scope="row">{{ i + 1 }}</th>
+                      <td>
+                        <mat-checkbox
+                          name="{{ item }}"
+                          value="{{ item.name }}"
+                          [(ngModel)]="item.isSelected"
+                          (change)="onchangeGoldPackage($event)"
+                        ></mat-checkbox>
+                      </td>
+                      <td>{{ item.name }}</td>
+                     </tr>
+                  </tbody>
+                </table>
+              </div>
+            <button class="btn btn-primary" (click)="goldPackageOrder()">Add To Cart</button>
+            </form>
+          </mat-card-content>
+          <a (click)="goToHome()" data-dismiss="modal"><i class="fa-solid fa-backward"></i> back to category</a>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Platimum Model -->
+<div
+  class="modal fade"
+  id="platimum"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Choose any nine in 3550 &#x20B9;</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+        <span aria-hidden="true"><i class="fa-solid fa-backward"></i></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <mat-card>
+          <mat-card-content>
+            <form #package="ngForm">
+              <div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col"></th>
+                      <th scope="col">Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of platinumPackage; let i = index">
+                      <th scope="row">{{ i + 1 }}</th>
+                      <td>
+                        <mat-checkbox
+                          name="{{ item }}"
+                          value="{{ item.name }}"
+                          [(ngModel)]="item.isSelected"
+                          (change)="onchangePlatinumPackage($event)"
+                        ></mat-checkbox>
+                      </td>
+                      <td>{{ item.name }}</td>
+                     </tr>
+                  </tbody>
+                </table>
+              </div>
+            <button class="btn btn-primary" (click)="platinumPackageOrder()">Add To Cart</button>
+            </form>
+          </mat-card-content>
+          <a (click)="goToHome()" data-dismiss="modal"><i class="fa-solid fa-backward"></i> back to category</a>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+

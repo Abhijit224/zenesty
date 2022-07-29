@@ -1,0 +1,185 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    padding: 5px;
+    grid-gap: 5px;
+}
+
+mat-card {
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    border-style: solid blo;
+    padding: auto;
+    text-align: center !important;
+    margin: auto;
+    /* background-color: purple; */
+    background-image: linear-gradient(to right, white,pink);
+}
+
+mat-card:hover {
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    padding: auto;
+    text-align: center !important;
+    margin: auto;
+    background-color: rgb(226, 43, 226);
+}
+
+mat-card-header {
+    display: block;
+}
+
+img {
+    margin: auto;
+    display: block;
+    border-radius: 10%;
+    width: 100px;
+    height: 100px;
+}
+
+.subtitle {
+    padding: 15px;
+    font-size: 18px;
+    word-wrap: break-word;
+    color: black;
+    font-style: normal;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.subtitle:hover {
+    padding: 15px;
+    color: blue;
+    font-size: 15px;
+    word-wrap: break-word;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+@media screen and (max-width: 767px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-gap: 5px;
+    }
+    mat-card {
+        width: 100px;
+        height: 150px;
+        border-radius: 10px;
+        padding: auto;
+        text-align: center !important;
+        margin: auto;
+        background-color: purple;
+    }
+    mat-card:hover {
+        width: 100px;
+        height: 150px;
+        border-radius: 10px;
+        padding: auto;
+        text-align: center !important;
+        margin: auto;
+        background-color: rgb(226, 43, 226);
+    }
+    img {
+        margin: auto;
+        display: block;
+        border-radius: 100%;
+        width: 80px;
+        height: 80px;
+    }
+    .subtitle {
+        padding: 15px;
+        font-size: 12px;
+        word-wrap: break-word;
+        color: black;
+        font-style: normal;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 5px;
+    }
+    mat-card {
+        width: 100px;
+        height: 150px;
+        border-radius: 10px;
+        padding: auto;
+        text-align: center !important;
+        margin: auto;
+        background-color: purple;
+    }
+    mat-card:hover {
+        width: 100px;
+        height: 150px;
+        border-radius: 10px;
+        padding: auto;
+        text-align: center !important;
+        margin: auto;
+        background-color: rgb(226, 43, 226);
+    }
+    img {
+        margin: auto;
+        display: block;
+        border-radius: 100%;
+        width: 80px;
+        height: 80px;
+    }
+    .subtitle {
+        padding: 15px;
+        font-size: 12px;
+        word-wrap: break-word;
+        color: black;
+        font-style: normal;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+}
+
+@media screen and(max-width:300px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 5px;
+    }
+    mat-card {
+        width: 100px;
+        height: 150px;
+        border-radius: 10px;
+        padding: auto;
+        text-align: center !important;
+        margin: auto;
+        background-color: purple;
+    }
+    mat-card:hover {
+        width: 100px;
+        height: 150px;
+        border-radius: 10px;
+        padding: auto;
+        text-align: center !important;
+        margin: auto;
+        background-color: rgb(226, 43, 226);
+    }
+    img {
+        margin: auto;
+        display: block;
+        border-radius: 100%;
+        width: 80px;
+        height: 80px;
+    }
+    .subtitle {
+        padding: 15px;
+        font-size: 12px;
+        word-wrap: break-word;
+        color: black;
+        font-style: normal;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+}

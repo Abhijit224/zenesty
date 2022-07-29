@@ -15,8 +15,10 @@ app.use(express.json())
 const connection=process.env.mongodb_url
 //Router Init
 const userRouter=require('./routes/userRouter')
+const orderRouter=require('./routes/orderRouter')
 //Setting Router
 app.use('/user',userRouter)
+app.use('/offers',orderRouter)
 
 
 app.listen(process.env.PORT,(error)=>{

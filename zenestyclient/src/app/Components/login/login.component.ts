@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
   }
   loginUser(form:FormGroup)
   {
-    console.log(form.value.email)
     this._auth.authservice(form.value.email,form.value.password)
+   
   }
 
 

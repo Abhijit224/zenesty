@@ -21,7 +21,9 @@ router.get('/register/:checkemail', async (req, res) => {
 })
 
 router.post('/register', (req, res) => {
-    console.log(req.body.User.firstName)
+    const hashPassword=bcrypt.hashSync(req.body.User.userPassword1,10)
+    console.log(hashPassword)
+    
 })
 
 router.post('/authentication', async (req, res) => {
@@ -39,6 +41,7 @@ router.post('/authentication', async (req, res) => {
                         res.status(404).send('password not match')
                     }
                     else {
+                        console.log(result)
                         const userData = {
                             "FirstName": result.firstName,
                             "LastName": result.lastName,
