@@ -16,9 +16,11 @@ const connection=process.env.mongodb_url
 //Router Init
 const userRouter=require('./routes/userRouter')
 const orderRouter=require('./routes/orderRouter')
+const cartRouter=require('./routes/cartRouter')
 //Setting Router
 app.use('/user',userRouter)
 app.use('/offers',orderRouter)
+app.use('/cart',cartRouter)
 
 
 app.listen(process.env.PORT,(error)=>{

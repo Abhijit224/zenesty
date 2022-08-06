@@ -1,1 +1,44 @@
-<p>cart works!</p>
+<div class="mainclass">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Package Name</th>
+                <th scope="col">Order Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of data ; let i =index">
+            <tr>
+                <th scope="row">{{i+1}}</th>
+                <!-- <td *ngFor="let order of item.orderDetail">{{order}}</td> -->
+                <td>
+                    {{item.orderInfo.serviceName}}
+                </td>
+                <td>
+                    <table class="innertable">
+                        <tbody *ngFor="let order of item.orderInfo.itemList">
+                            <tr>
+                                <td>
+                                    {{order}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>{{item.orderInfo.totalPrice}}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <button mat-fab color="accent">
+                                 Buy
+                            </button>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+    
+        </tbody>
+    </table>
+</div>

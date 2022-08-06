@@ -1,0 +1,19 @@
+
+.container{
+    padding: 5px;
+}
+mat-card {
+    width: auto;
+    background-image: linear-gradient(to right, white, pink);
+}
+
+.checklist {
+    list-style: none;
+    display: flex;
+    padding: 10px;
+    margin: auto;
+}
+
+.checklist li {
+    padding: 5px;
+}

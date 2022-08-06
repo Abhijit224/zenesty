@@ -20,6 +20,12 @@ import { RegisterComponent } from './Components/register/register.component';
 import { OfferComponent } from './Components/CategoryComponents/offer/offer.component';
 import { TestInterceptor } from './AppInterceptors/test.interceptor';
 import { CartComponent } from './Components/cart/cart.component';
+import { BleachComponent } from './Components/CategoryComponents/bleach/bleach.component';
+import { HairComponent } from './Components/CategoryComponents/hair/hair.component';
+import { MassageComponent } from './Components/CategoryComponents/massage/massage.component';
+import { TheradingComponent } from './Components/CategoryComponents/therading/therading.component';
+import { FaceComponent } from './Components/CategoryComponents/face/face.component';
+import { WaxingComponent } from './Components/CategoryComponents/waxing/waxing.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,13 @@ import { CartComponent } from './Components/cart/cart.component';
     LoginComponent,
     RegisterComponent,
     OfferComponent,
-    CartComponent
+    CartComponent,
+    BleachComponent,
+    HairComponent,
+    MassageComponent,
+    TheradingComponent,
+    FaceComponent,
+    WaxingComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +59,7 @@ import { CartComponent } from './Components/cart/cart.component';
   ],
   providers: [
      { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+     //{provide:HTTP_INTERCEPTORS,useClass:TestInterceptor,multi:true},
     JwtHelperService,
   ],
  

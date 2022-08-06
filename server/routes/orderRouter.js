@@ -17,10 +17,8 @@ router.post('/basic', async (req, res) => {
       itemList: servicelist,
       totalPrice: req.body.price,
       serviceName: req.body.servicename
-     },
-     customerDetail: {
+     },    
       customerId: result._id,
-     }
     })
      .save()
      .catch((error) => {

@@ -98,7 +98,7 @@ export class OfferComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+// Basic Package
   onchangeBasicPackage(event: any) {
     this.itemSelected = this.basicPackage.filter(x => x.isSelected == true)
     this.selectedItemLength = this.itemSelected.length
@@ -118,6 +118,7 @@ export class OfferComponent implements OnInit {
       this._offer.getBasicOrder(this.itemSelected,price,servicename)
     }
   }
+  // Standard Package
   onchangeStandardPackage(event: any) {
     this.itemSelected = this.standardPackage.filter(x => x.isSelected == true)
     this.selectedItemLength = this.itemSelected.length
@@ -131,7 +132,10 @@ export class OfferComponent implements OnInit {
       this._toastr.error('please select mimimum 6 item')
     }
     else {
-      this._toastr.success('add to cart')
+      this._offer.getAuth()
+      const price=1950
+      const servicename='standard'
+      this._offer.getBasicOrder(this.itemSelected,price,servicename)
     }
   }
   onchangePremiumPackage(event: any) {
@@ -147,7 +151,10 @@ export class OfferComponent implements OnInit {
       this._toastr.error('please select mimimum 7 item')
     }
     else {
-      this._toastr.success('add to cart')
+      this._offer.getAuth()
+      const price=2850
+      const servicename='premium'
+      this._offer.getBasicOrder(this.itemSelected,price,servicename)
     }
   }
   onchangeGoldPackage(event: any) {
@@ -163,7 +170,10 @@ export class OfferComponent implements OnInit {
       this._toastr.error('please select mimimum 8 item')
     }
     else {
-      this._toastr.success('add to cart')
+      this._offer.getAuth()
+      const price=3050
+      const servicename='gold'
+      this._offer.getBasicOrder(this.itemSelected,price,servicename)
     }
   }
   onchangePlatinumPackage(event: any) {
@@ -179,7 +189,10 @@ export class OfferComponent implements OnInit {
       this._toastr.error('please select mimimum 9 item')
     }
     else {
-      this._toastr.success('add to cart')
+      this._offer.getAuth()
+      const price=3550
+      const servicename='platinum'
+      this._offer.getBasicOrder(this.itemSelected,price,servicename)
     }
   }
   goToHome() {

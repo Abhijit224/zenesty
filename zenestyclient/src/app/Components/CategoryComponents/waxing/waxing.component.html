@@ -1,0 +1,328 @@
+<div class="container">
+  <mat-card class="cardCategory" data-toggle="modal" data-target="#honey" (click)="serviceName('honeyWaxing')">
+    <img src="../../../../assets/bannerImages/pure-natural-honey.jpg" />
+    <mat-card-content class="cardBtn">Honey</mat-card-content>
+  </mat-card>
+  <mat-card class="cardCategory" data-toggle="modal" data-target="#rica" (click)="serviceName('ricaWaxing')">
+    <img src="../../../../assets/bannerImages/rica.jpg" />
+    <mat-card-content class="cardBtn">Rica</mat-card-content>
+  </mat-card>
+  <mat-card class="cardCategory" data-toggle="modal" data-target="#hygienic" (click)="serviceName('hygienicRollOnWaxing')">
+    <img src="../../../../assets/bannerImages/rollonwaxing.jpeg" />
+    <mat-card-content class="cardBtn">Hygienic RollOn</mat-card-content>
+  </mat-card>
+  <mat-card class="cardCategory" data-toggle="modal" data-target="#brazilian" (click)="serviceName('brazilianWaxing')">
+    <img src="../../../../assets/bannerImages/hygienicrollon.jpg" />
+    <mat-card-content class="cardBtn">Brazilian</mat-card-content>
+  </mat-card>
+</div>
+<br />
+
+<!-- Honey -->
+<div
+  class="modal fade"
+  id="honey"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Honey</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <mat-card>
+         <mat-card-content>
+           <form #package="ngForm" (ngSubmit)="checkOrder()">
+             <div>
+               <table class="table">
+                 <thead>
+                   <tr>
+                     <th scope="col">#</th>
+                     <th scope="col"></th>
+                     <th scope="col">Name</th>
+                     <th scope="col">Time(min)</th>
+                     <th scope="col">Price</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr *ngFor="let item of honeyWaxing; let i = index">
+                     <th scope="row">{{ i + 1 }}</th>
+                     <td>
+                       <mat-checkbox
+                         name="{{ item }}"
+                         value="{{ item.name }} {{ item.price }}"
+                         [(ngModel)]="item.isSelected"
+                         (change)="onchange($event)"
+                       ></mat-checkbox>
+                     </td>
+                     <td>{{ item.name }}</td>
+                     <td>{{ item.time }}</td>
+                     <td>{{ item.price }}</td>
+                   </tr>
+                 </tbody>
+               </table>
+             </div>
+             <ul class="checklist">
+               <li>Total Price : {{ totalprice }}</li>
+               <li>Total Time : {{ totaltime }}</li>
+             </ul>
+             <button class="btn btn-primary">Add To Cart</button>
+           </form>
+         </mat-card-content>
+       </mat-card>
+     </div>
+     <div class="modal-footer">
+       <button
+         type="button"
+         class="btn btn-secondary"
+         data-dismiss="modal"
+         (click)="uncheckall()"
+       >
+         Close
+       </button>
+     </div>
+    </div>
+  </div>
+</div>
+<!-- Rica -->
+<div
+  class="modal fade"
+  id="rica"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Rica</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <mat-card>
+         <mat-card-content>
+           <form #package="ngForm" (ngSubmit)="checkOrder()">
+             <div>
+               <table class="table">
+                 <thead>
+                   <tr>
+                     <th scope="col">#</th>
+                     <th scope="col"></th>
+                     <th scope="col">Name</th>
+                     <th scope="col">Time(min)</th>
+                     <th scope="col">Price</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr *ngFor="let item of ricaWaxing; let i = index">
+                     <th scope="row">{{ i + 1 }}</th>
+                     <td>
+                       <mat-checkbox
+                         name="{{ item }}"
+                         value="{{ item.name }} {{ item.price }}"
+                         [(ngModel)]="item.isSelected"
+                         (change)="onchange($event)"
+                       ></mat-checkbox>
+                     </td>
+                     <td>{{ item.name }}</td>
+                     <td>{{ item.time }}</td>
+                     <td>{{ item.price }}</td>
+                   </tr>
+                 </tbody>
+               </table>
+             </div>
+             <ul class="checklist">
+               <li>Total Price : {{ totalprice }}</li>
+               <li>Total Time : {{ totaltime }}</li>
+             </ul>
+             <button class="btn btn-primary">Add To Cart</button>
+           </form>
+         </mat-card-content>
+       </mat-card>
+     </div>
+     <div class="modal-footer">
+       <button
+         type="button"
+         class="btn btn-secondary"
+         data-dismiss="modal"
+         (click)="uncheckall()"
+       >
+         Close
+       </button>
+     </div>
+    </div>
+  </div>
+</div>
+<!-- Hygienic -->
+<div
+  class="modal fade"
+  id="hygienic"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hygienic RollOn</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <mat-card>
+         <mat-card-content>
+           <form #package="ngForm" (ngSubmit)="checkOrder()">
+             <div>
+               <table class="table">
+                 <thead>
+                   <tr>
+                     <th scope="col">#</th>
+                     <th scope="col"></th>
+                     <th scope="col">Name</th>
+                     <th scope="col">Time(min)</th>
+                     <th scope="col">Price</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr *ngFor="let item of hygienicRollOnWaxing; let i = index">
+                     <th scope="row">{{ i + 1 }}</th>
+                     <td>
+                       <mat-checkbox
+                         name="{{ item }}"
+                         value="{{ item.name }} {{ item.price }}"
+                         [(ngModel)]="item.isSelected"
+                         (change)="onchange($event)"
+                       ></mat-checkbox>
+                     </td>
+                     <td>{{ item.name }}</td>
+                     <td>{{ item.time }}</td>
+                     <td>{{ item.price }}</td>
+                   </tr>
+                 </tbody>
+               </table>
+             </div>
+             <ul class="checklist">
+               <li>Total Price : {{ totalprice }}</li>
+               <li>Total Time : {{ totaltime }}</li>
+             </ul>
+             <button class="btn btn-primary">Add To Cart</button>
+           </form>
+         </mat-card-content>
+       </mat-card>
+     </div>
+     <div class="modal-footer">
+       <button
+         type="button"
+         class="btn btn-secondary"
+         data-dismiss="modal"
+         (click)="uncheckall()"
+       >
+         Close
+       </button>
+     </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="brazilian"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Brazilian</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <mat-card>
+         <mat-card-content>
+           <form #package="ngForm" (ngSubmit)="checkOrder()">
+             <div>
+               <table class="table">
+                 <thead>
+                   <tr>
+                     <th scope="col">#</th>
+                     <th scope="col"></th>
+                     <th scope="col">Name</th>
+                     <th scope="col">Time(min)</th>
+                     <th scope="col">Price</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr *ngFor="let item of brazilianWaxing; let i = index">
+                     <th scope="row">{{ i + 1 }}</th>
+                     <td>
+                       <mat-checkbox
+                         name="{{ item }}"
+                         value="{{ item.name }} {{ item.price }}"
+                         [(ngModel)]="item.isSelected"
+                         (change)="onchange($event)"
+                       ></mat-checkbox>
+                     </td>
+                     <td>{{ item.name }}</td>
+                     <td>{{ item.time }}</td>
+                     <td>{{ item.price }}</td>
+                   </tr>
+                 </tbody>
+               </table>
+             </div>
+             <ul class="checklist">
+               <li>Total Price : {{ totalprice }}</li>
+               <li>Total Time : {{ totaltime }}</li>
+             </ul>
+             <button class="btn btn-primary">Add To Cart</button>
+           </form>
+         </mat-card-content>
+       </mat-card>
+     </div>
+     <div class="modal-footer">
+       <button
+         type="button"
+         class="btn btn-secondary"
+         data-dismiss="modal"
+         (click)="uncheckall()"
+       >
+         Close
+       </button>
+     </div>
+    </div>
+  </div>
+</div>

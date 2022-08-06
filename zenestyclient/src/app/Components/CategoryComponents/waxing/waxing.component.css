@@ -1,0 +1,62 @@
+.container {
+    
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+}
+
+.itemlist ul {
+    list-style: none;
+    display: grid;
+}
+
+.itemlist li {
+    margin: 10px;
+}
+
+.cardCategory {
+    width: 150px;
+    height: 150px;
+    background-image: linear-gradient(to right,white,pink);
+    text-align: center;
+    margin: auto;
+    border-radius: 40px;
+}
+img {
+    width: 90px;
+    height: 90px;
+    border-radius: 40px;
+}
+
+mat-card {
+    background-color: pink;
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 10px;
+    }
+    .itemlist ul {
+        list-style: none;
+        display: grid;
+    }
+    .itemlist li {
+        margin: 10px;
+    }
+    .cardCategory {
+        width: 150px;
+        height: 150px;
+        background-image: linear-gradient(to right,white,pink);
+        text-align: center;
+        margin: auto;
+        border-radius: 40px;
+    }
+
+    img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50px;
+    }
+}

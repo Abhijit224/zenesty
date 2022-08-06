@@ -3,21 +3,36 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpErrorResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { UserService } from '../AppServices/user.service';
+import { ToastrService } from 'ngx-toastr';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable()
 export class TestInterceptor implements HttpInterceptor {
   Token:any
+  userEmail:any
   constructor(
     private _userService:UserService,
+    private _toastr:ToastrService,
+    private _jwtHelper:JwtHelperService,
   ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log("interceptor is working")
     
-    return next.handle(request);
+      // this.Token = localStorage.getItem('userToken')
+
+    
+      // const token = this._jwtHelper.decodeToken(this.Token)
+      // this.userEmail = token.Email
+      // const req=request.clone({
+      //  setHeaders:{
+      //   Authorization:`${this.Token}`
+      //  }
+      // })
+    return next.handle(request)    
   }
 }

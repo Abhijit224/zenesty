@@ -1,0 +1,8 @@
+.container{
+    padding: 20px;
+}
+mat-card{
+    width:auto;
+    background-image: linear-gradient(to right,white,pink);
+
+}

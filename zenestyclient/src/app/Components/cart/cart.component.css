@@ -1,0 +1,19 @@
+tbody {
+    overflow: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+.innertable td {
+    text-align: center;
+}

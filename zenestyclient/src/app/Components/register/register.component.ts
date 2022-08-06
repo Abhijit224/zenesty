@@ -33,6 +33,7 @@ export class RegisterComponent implements OnInit {
     this._userService.checkUser(email)
   }
   registerUser(){
+    console.log(this.newUser)
       this._userService.getRegister(this.newUser)
   }
 
