@@ -1,0 +1,55 @@
+<!-- <div *ngFor="let item of orderDetail">
+    {{item}}
+</div>
+<h1>
+    {{serviceName}}
+</h1>
+<h1>
+    {{totalPrice}}
+</h1>
+<h2>
+    {{totalTime}}
+</h2>
+<h1>
+    {{userData}}
+</h1>
+<h1>
+    button to buy order
+</h1> -->
+<div>
+    <mat-card class="mainclass">
+        <mat-card>
+            <div>
+                <h3 class="title">Service Name : </h3>
+                <h4 class="info">{{cartData.orderInfo.serviceName}}</h4>
+            </div>
+            <div>
+                <h3 class="title">Order Description :</h3>
+                <h4 class="info" *ngFor="let item of cartData.orderInfo.itemList">{{item}}</h4>
+            </div>
+            <div>
+                <h3 class="title">Order Price :</h3>
+                <h4 class="info">{{cartData.orderInfo.totalPrice}} &#8377;</h4>
+            </div>
+            <div>
+                <h3 class="title">Order Time:</h3>
+                <h4 class="info">{{cartData.orderInfo.totalTime}}<small>(min)</small></h4>
+            </div>
+        </mat-card>
+        <mat-card>
+            <div>
+                <h3 class="title">Customer Name:</h3>
+                <h4 class="info">{{userData.FirstName}} {{userData.LastName}}</h4>
+            </div>
+            <div>
+                <h3 class="title">Contact</h3>
+                <h4 class="info">{{userData.Mobile}}</h4>
+            </div>
+            <div>
+                <h3 class="title">Address</h3>
+                <h4 class="info">{{userData.Address}}</h4>
+            </div>
+        </mat-card>
+    </mat-card>
+</div>
+<br>

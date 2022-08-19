@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { BleachService } from 'src/app/AppServices/bleach.service';
 interface bleach {
   id: number,
@@ -17,7 +18,8 @@ export class BleachComponent implements OnInit {
   checkitem: bleach[] = []
   info: any
   ProfileData$: any
-  servicename:any
+  itemList: [] = []
+  servicename: any
   totalprice = 0
   totaltime = 0
   OxyBleach: bleach[] = [
@@ -53,38 +55,42 @@ export class BleachComponent implements OnInit {
     { id: 8, name: 'Half Front', time: 25, price: 199, isSelected: false },
   ]
   constructor(
-    private _bleach:BleachService
+    private _bleach: BleachService,
+    private _toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
   }
+  serviceName(ser: any) {
+    this.servicename = ser
+  }
   onchange(e: any) {
     if (e.checked == true) {
-      if(this.servicename==='Oxy'){
+      if (this.servicename === 'Oxy') {
         this.itemSelected = this.OxyBleach.filter(x => x.isSelected == true)
         let total = 0
         this.itemSelected.forEach((item: { price: number; }) => {
           total += item.price
         })
-        let time=0
-        this.itemSelected.forEach((item:{time:number})=>{
-          time +=item.time
+        let time = 0
+        this.itemSelected.forEach((item: { time: number }) => {
+          time += item.time
         })
         this.totalprice = total
-        this.totaltime =time
+        this.totaltime = time
       }
-      else if(this.servicename==='Reechfeel')
+      else if (this.servicename === 'Reechfeel')
         this.itemSelected = this.Reechfeel.filter(x => x.isSelected == true)
-        let total = 0
-        this.itemSelected.forEach((item: { price: number; }) => {
-          total += item.price
-        })
-        let time=0
-        this.itemSelected.forEach((item:{time:number})=>{
-          time +=item.time
-        })
-        this.totalprice = total
-        this.totaltime =time
+      let total = 0
+      this.itemSelected.forEach((item: { price: number; }) => {
+        total += item.price
+      })
+      let time = 0
+      this.itemSelected.forEach((item: { time: number }) => {
+        time += item.time
+      })
+      this.totalprice = total
+      this.totaltime = time
     }
     else {
       this.itemSelected = this.Cheryl.filter(x => x.isSelected == true)
@@ -92,29 +98,30 @@ export class BleachComponent implements OnInit {
       this.itemSelected.forEach((item: { price: number; }) => {
         total += item.price
       })
-      let time=0
-      this.itemSelected.forEach((item:{time:number})=>{
-        time +=item.time
+      let time = 0
+      this.itemSelected.forEach((item: { time: number }) => {
+        time += item.time
       })
       this.totalprice = total
-      this.totaltime =time
+      this.totaltime = time
     }
-   
   }
-  checkOrder(){
-    this._bleach.getBleachOrder(this.itemSelected,this.totalprice,this.totaltime,this.servicename)
-}
-  uncheckall(){
+  uncheckall() {
     this.itemSelected.forEach((item: any) => {
       item.isSelected = false
       while (this.checkitem.length) {
         this.checkitem.pop()
       }
     })
-    this.totalprice=0
-    this.totaltime=0
+    this.totalprice = 0
+    this.totaltime = 0
   }
-  serviceName(ser:any){
-    this.servicename=ser
-   }
+  checkOrder() {
+    if (this.itemSelected === undefined) {
+      this._toastr.warning('Please select anything')
+    } else {
+      this._toastr.success('Thank you for choose this services..')
+      this._bleach.getBleachOrder(this.itemSelected, this.totalprice, this.totaltime, this.servicename)
+    }
+  }
 }

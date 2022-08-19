@@ -61,7 +61,8 @@ router.post('/authentication', async (req, res) => {
        "FirstName": result.firstName,
        "LastName": result.lastName,
        "Mobile": result.userMobile,
-       "Email": result.userEmail
+       "Email": result.userEmail,
+       "Address":result.userAddress
       }
       const Token = jwt.sign(userData, process.env.Access_Token_Secret)
       res.status(200).send(JSON.stringify(Token))

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { HairService } from 'src/app/AppServices/hair.service';
 interface hair{
   id: number,
   isSelected: boolean,
@@ -41,7 +43,10 @@ export class HairComponent implements OnInit {
     {id:2,name:'Hair Spa',description:'up to Elbows',time:50,price:750,isSelected:false},
     {id:3,name:'Hair Spa',description:'up to Waist',time:60,price:1000,isSelected:false},
   ]
-  constructor() { }
+  constructor(
+    private _hairService:HairService,
+    private _toastr:ToastrService,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -49,7 +54,7 @@ export class HairComponent implements OnInit {
   onchange(e:any){
     if (e.checked == true) {
     switch(this.servicename){
-      case 'hairColouring':{
+      case 'Hair Colouring':{
         this.itemSelected = this.hairColouring.filter(x => x.isSelected == true)
         let total = 0
         this.itemSelected.forEach((item: { price: number; }) => {
@@ -63,7 +68,7 @@ export class HairComponent implements OnInit {
         this.totaltime =time
         break;
       }
-      case 'hairCutting':{
+      case 'Hair Cutting':{
         this.itemSelected = this.hairCut.filter(x => x.isSelected == true)
         let total = 0
         this.itemSelected.forEach((item: { price: number; }) => {
@@ -77,7 +82,7 @@ export class HairComponent implements OnInit {
         this.totaltime =time
         break;
       }
-      case 'hairSpa':{
+      case 'Hair Spa':{
         this.itemSelected = this.hairSpa.filter(x => x.isSelected == true)
         let total = 0
         this.itemSelected.forEach((item: { price: number; }) => {
@@ -109,7 +114,13 @@ uncheckall(){
   this.totaltime=0
 }
 checkOrder(){
-
+  console.log(this.itemSelected)
+  if (this.itemSelected === undefined) {
+    this._toastr.warning('Please select anything')
+  } else {
+    this._toastr.success('Thank you for choose this services..')
+    this._hairService.getOrder(this.itemSelected, this.totalprice, this.totaltime, this.servicename)
+  }
 }
 }
 

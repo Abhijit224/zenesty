@@ -1,3 +1,12 @@
+.mainclass{
+    background-color: #fed9ff;
+    width: auto;
+    height: 350px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    padding: 20px; 
+}
 tbody {
     overflow: auto;
 }
@@ -7,13 +16,22 @@ ul {
 }
 
 th {
+    font-size: smaller;
     text-align: center;
 }
 
 td {
     text-align: center;
+    font-size: smaller;
+    border-color: red;
+}
+.deletebtn{
+    font-size: 60%;
+    background-color: red;
+    border-radius: 5px;
 }
 
 .innertable td {
+    font-size: 10px;
     text-align: center;
 }

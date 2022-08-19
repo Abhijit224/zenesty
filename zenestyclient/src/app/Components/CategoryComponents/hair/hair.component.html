@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-card class="cardCategory" data-toggle="modal" data-target="#oxyModal" (click)="serviceName('hairColouring')">
+  <mat-card class="cardCategory" data-toggle="modal" data-target="#oxyModal" (click)="serviceName('Hair Colouring')">
     <img src="../../../../assets/bannerImages/hair-colours.jpg" />
     <mat-card-content class="cardBtn">Hair Colouring</mat-card-content>
   </mat-card>
@@ -7,14 +7,14 @@
     class="cardCategory"
     data-toggle="modal"
     data-target="#reechfeelModal"
-    (click)="serviceName('hairCutting')"
+    (click)="serviceName('Hair Cutting')"
   >
     <img
       src="../../../../assets/bannerImages/haircuting.jpg"
     />
     <mat-card-content class="cardBtn"> Hair Cutting</mat-card-content>
   </mat-card>
-  <mat-card class="cardCategory" data-toggle="modal" data-target="#cherylModal" (click)="serviceName('hairSpa')">
+  <mat-card class="cardCategory" data-toggle="modal" data-target="#cherylModal" (click)="serviceName('Hair Spa')">
     <img src="../../../../assets/bannerImages/hairspa.jpg" />
     <mat-card-content class="cardBtn">Hair Spa</mat-card-content>
   </mat-card>
@@ -53,7 +53,7 @@
                       <th scope="col">#</th>
                       <th scope="col"></th>
                       <th scope="col">Name</th>
-                     
+                     <th scope="col">Description</th>
                       <th scope="col">Time(min)</th>
                       <th scope="col">Price</th>
                     </tr>
@@ -70,6 +70,7 @@
                         ></mat-checkbox>
                       </td>
                       <td>{{ item.name }}</td>
+                      <td>{{item.description}}</td>
                       <td>{{ item.time }}</td>
                       <td>{{ item.price }}</td>
                     </tr>

@@ -50,4 +50,13 @@ export class UserService {
         }
       })
   }
+  userInfo(){
+     this.Token$ = localStorage.getItem('userToken')
+     if(!this.Token$){
+     this._toastr.warning('Please login first...')
+      return false
+     }
+     this.userInfo$ = this._jwt.decodeToken(this.Token$)
+     return true
+  }
 }

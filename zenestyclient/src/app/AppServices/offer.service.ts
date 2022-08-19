@@ -34,6 +34,7 @@ export class OfferService {
   }
   getBasicOrder(itemlist: any,price:any,servicename:any) {
     const email=this.userEmail
+    console.log(itemlist)
     this._http.post('http://localhost:4000/offers/basic',{itemlist,email,price,servicename})
     .subscribe((result)=>{
       if(!result){

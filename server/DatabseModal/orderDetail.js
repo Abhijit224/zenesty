@@ -5,6 +5,9 @@ const orderDetailSchema = mongoose.Schema({
         itemList: {
             type: Array
         },
+        detail:{
+            type:Array
+        },
         totalPrice: {
             type: Number
         },

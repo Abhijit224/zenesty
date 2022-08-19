@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WaxingService } from 'src/app/AppServices/waxing.service';
 interface waxing {
   id: number,
   isSelected: boolean,
@@ -70,7 +71,9 @@ export class WaxingComponent implements OnInit {
     { id: 6, name: 'Chin', description: '', time: 20, price: 500, isSelected: false },
     { id: 7, name: 'Upperlips', description: '', time: 20, price: 60, isSelected: false },
   ]
-  constructor() { }
+  constructor(
+    private _waxing:WaxingService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -150,6 +153,6 @@ export class WaxingComponent implements OnInit {
   this.totaltime=0
 }
 checkOrder(){
-  
+  this._waxing.getBleachOrder(this.itemSelected,this.totalprice,this.totaltime,this.servicename)
 }
 }

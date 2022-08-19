@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { FaceService } from 'src/app/AppServices/face.service';
 interface facials {
   id: number,
   isSelected: boolean,
   name: string,
-  description:string,
+  description: string,
   time: number,
   price: number
 }
@@ -14,18 +16,18 @@ interface facials {
   styleUrls: ['./face.component.css']
 })
 export class FaceComponent implements OnInit {
-  itemSelected:any
-  checkitem:facials[]=[]
-  totalprice:any
-  totaltime:any
-  info:any
-  serviceName:any
+  itemSelected: any
+  checkitem: facials[] = []
+  totalprice: any
+  totaltime: any
+  info: any
+  serviceName: any
   face = [] = [
     { id: 1, name: 'VLCC', description: '', time: 50, price: 500, isSelected: false },
     { id: 2, name: 'Lotus', description: '', time: 50, price: 700, isSelected: false },
     { id: 3, name: 'ReechFeel', description: '', time: 50, price: 550, isSelected: false },
     { id: 4, name: 'Astaberry', description: 'Whitening', time: 50, price: 650, isSelected: false },
-    { id: 5, name: 'Astaberry', description: 'Wine', time:50, price: 550, isSelected: false },
+    { id: 5, name: 'Astaberry', description: 'Wine', time: 50, price: 550, isSelected: false },
     { id: 6, name: 'Shehnaz Hussen', description: 'pappaya', time: 50, price: 850, isSelected: false },
     { id: 7, name: 'Shehnaz Hussen', description: 'Anti Tan', time: 50, price: 950, isSelected: false },
     { id: 8, name: 'Shehnaz Hussen', description: 'Shehnaz Anti Ageing', time: 60, price: 1400, isSelected: false },
@@ -43,18 +45,20 @@ export class FaceComponent implements OnInit {
     { id: 20, name: 'Elysian', description: 'Saundarya Multi Mask Facial', time: 60, price: 1399, isSelected: false },
   ]
   constructor(
-    private _router:Router
+    private _router: Router,
+    private _face: FaceService,
+    private _toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
   }
-  servicename(ser:any){
-    this.serviceName=ser;
+  servicename(ser: any) {
+    this.serviceName = ser;
   }
-  onchange(event:any){
+  onchange(event: any) {
     if (event.checked == true) {
       this.itemSelected = this.face.filter(x => x.isSelected == true)
-     
+
       this.checkitem.push(this.itemSelected)
     }
     else {
@@ -64,14 +68,14 @@ export class FaceComponent implements OnInit {
     this.itemSelected.forEach((item: { price: number; }) => {
       total += item.price
     })
-    let time=0
-    this.itemSelected.forEach((item:{time:number})=>{
-      time +=item.time
+    let time = 0
+    this.itemSelected.forEach((item: { time: number }) => {
+      time += item.time
     })
     this.totalprice = total
-    this.totaltime =time
+    this.totaltime = time
   }
-  goToHome(){
+  goToHome() {
     this._router.navigate(['/'])
     this.uncheckall()
   }
@@ -82,11 +86,15 @@ export class FaceComponent implements OnInit {
         this.checkitem.pop()
       }
     })
-    this.totalprice=0
-    this.totaltime=0
+    this.totalprice = 0
+    this.totaltime = 0
   }
-checkOrder(){
-  
-}
-
+  checkOrder() {
+    if (this.itemSelected === undefined) {
+      this._toastr.warning('Please select anything')
+    } else {
+      this._toastr.success('Thank you for choose this services..')
+      this._face.getBleachOrder(this.itemSelected, this.totalprice, this.totaltime, this.serviceName)
+    }
+  }
 }

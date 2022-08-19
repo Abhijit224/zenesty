@@ -1,0 +1,31 @@
+.mainclass{
+    background-image: linear-gradient(to right, white,pink);
+    width: 50%;
+    margin: auto;
+}
+.title{
+text-align: center;
+color: brown;
+font-size: small;
+}
+.info{
+color: blue;
+font-size: small;
+}
+
+@media screen and (max-width:757px) {
+    .mainclass{
+        background-image: linear-gradient(to right, white,pink);
+        width: 80%;
+        margin: auto;
+    } 
+    .title{
+        text-align: center;
+        color: brown;
+        font-size:smaller;
+        }
+        .info{
+        color: blue;
+        font-size: smaller;
+        }
+}

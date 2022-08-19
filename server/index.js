@@ -17,10 +17,16 @@ const connection=process.env.mongodb_url
 const userRouter=require('./routes/userRouter')
 const orderRouter=require('./routes/orderRouter')
 const cartRouter=require('./routes/cartRouter')
+const bleachRouter=require('./routes/bleach')
+const hairRouter= require('./routes/hair')
+const postOrderRouter = require('./routes/postOrder')
 //Setting Router
 app.use('/user',userRouter)
 app.use('/offers',orderRouter)
 app.use('/cart',cartRouter)
+app.use('/bleach',bleachRouter)
+app.use('/hair',hairRouter)
+app.use('/postOrder',postOrderRouter)
 
 
 app.listen(process.env.PORT,(error)=>{

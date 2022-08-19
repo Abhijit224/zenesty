@@ -26,6 +26,10 @@ import { MassageComponent } from './Components/CategoryComponents/massage/massag
 import { TheradingComponent } from './Components/CategoryComponents/therading/therading.component';
 import { FaceComponent } from './Components/CategoryComponents/face/face.component';
 import { WaxingComponent } from './Components/CategoryComponents/waxing/waxing.component';
+import { PedimaniComponent } from './Components/CategoryComponents/pedimani/pedimani.component';
+import { ErrorComponent } from './Components/error/error.component';
+import { BeautyspaComponent } from './Components/CategoryComponents/beautyspa/beautyspa.component';
+import { BuyComponent } from './Components/CategoryComponents/buy/buy.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { WaxingComponent } from './Components/CategoryComponents/waxing/waxing.c
     MassageComponent,
     TheradingComponent,
     FaceComponent,
-    WaxingComponent
+    WaxingComponent,
+    PedimaniComponent,
+    ErrorComponent,
+    BeautyspaComponent,
+    BuyComponent
   ],
   imports: [
     BrowserModule,

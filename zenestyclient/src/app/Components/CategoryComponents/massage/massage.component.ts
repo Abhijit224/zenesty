@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { MassageService } from 'src/app/AppServices/massage.service';
 interface bodyMassage {
   id: number,
   isSelected: boolean,
@@ -31,13 +32,17 @@ export class MassageComponent implements OnInit {
     { id: 1, name: 'Shoulder & Neck Massage', description: '', time: 25, price: 350, isSelected: false },
     { id: 1, name: 'Scalp Relaxing', description: '', time: 20, price: 250, isSelected: false },
   ]
-  constructor( private _router: Router,
+  constructor( 
+    private _router: Router,
     private _jwtHelper:JwtHelperService,
+    private _massageService:MassageService
     ) { }
 
   ngOnInit(): void {
   }
-
+  servicename(ser:string){
+    this.serviceName=ser;
+ }
   goToHome() {
     this._router.navigate(['/'])
     this.uncheckall()
@@ -73,11 +78,8 @@ export class MassageComponent implements OnInit {
     this.totaltime=0
   }
   checkOrder() {
-   
+   this._massageService.getOrder(this.itemSelected,this.totalprice,this.totaltime,this.serviceName)
   }
-  servicename(ser:string){
-    this.serviceName=ser;
-    
-  }
+
 
 }

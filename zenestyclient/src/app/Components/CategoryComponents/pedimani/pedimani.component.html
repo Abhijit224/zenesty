@@ -1,0 +1,178 @@
+<div class="container">
+    <mat-card class="cardCategory" data-toggle="modal" data-target="#padiModal" (click)="serviceName('Padicure')">
+      <!-- <img src="../../../../assets/bannerImages/22-oxylife-bleach.jpg" /> -->
+      <mat-card-content class="cardBtn">Pedicure</mat-card-content>
+    </mat-card>
+      <mat-card class="cardCategory" data-toggle="modal" data-target="#manilModal" (click)="serviceName('Manicure')">
+      <!-- <img src="../../../../assets/bannerImages/cheryls-bleach.webp" /> -->
+      <mat-card-content class="cardBtn">Manicure</mat-card-content>
+    </mat-card>
+  </div>
+  <br />
+  
+  <!--Pedicure-->
+  <div
+    class="modal fade"
+    id="padiModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Pedicure</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <mat-card>
+            <mat-card-content>
+              <form #package="ngForm" (ngSubmit)="checkOrder()">
+                <div>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col"></th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Time(min)</th>
+                        <th scope="col">Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of  Padicure; let i = index">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>
+                          <mat-checkbox
+                            name="{{ item }}"
+                            value="{{ item.name }} {{ item.price }}"
+                            [(ngModel)]="item.isSelected"
+                            (change)="onchange($event)"
+                          ></mat-checkbox>
+                        </td>
+                        <td>{{ item.name }}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{ item.time }}</td>
+                        <td>{{ item.price }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <ul class="checklist">
+                  <li>Total Price : {{ totalprice }}</li>
+                  <li>Total Time : {{ totaltime }}</li>
+                </ul>
+                <button class="btn btn-primary">Add To Cart</button>
+              </form>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            (click)="uncheckall()"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Manicure -->
+  <div
+    class="modal fade"
+    id="manilModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Manicure</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <mat-card>
+            <mat-card-content>
+              <form #package="ngForm" (ngSubmit)="checkOrder()">
+                <div>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col"></th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Time(min)</th>
+                        <th scope="col">Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of  Manicure; let i = index">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>
+                          <mat-checkbox
+                            name="{{ item }}"
+                            value="{{ item.name }} {{ item.price }}"
+                            [(ngModel)]="item.isSelected"
+                            (change)="onchange($event)"
+                          ></mat-checkbox>
+                        </td>
+                        <td>{{ item.name }}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{ item.time }}</td>
+                        <td>{{ item.price }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <ul class="checklist">
+                  <li>Total Price : {{ totalprice }}</li>
+                  <li>Total Time : {{ totaltime }}</li>
+                </ul>
+                <button class="btn btn-primary">Add To Cart</button>
+              </form>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            (click)="uncheckall()"
+          >
+            Close
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

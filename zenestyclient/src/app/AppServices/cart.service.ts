@@ -17,6 +17,11 @@ export class CartService {
     this.userData = this._jwt.decodeToken(this.token)
     const id = this.userData.id
     return this._http.get('http://localhost:4000/cart/' + id)
+  }
+  getDeleteOrder(id: any) {
+    return this._http.delete('http://localhost:4000/cart/deleteitem/' + id)
+      .subscribe((result) => {
 
+      })
   }
 }

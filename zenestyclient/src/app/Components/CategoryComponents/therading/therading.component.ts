@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TheradingService } from 'src/app/AppServices/therading.service';
 interface threading {
   id: number,
   isSelected: boolean,
@@ -32,6 +33,7 @@ export class TheradingComponent implements OnInit {
   ]
   constructor(
     private _router:Router,
+    private _therading:TheradingService
     
   ) { }
 
@@ -61,7 +63,7 @@ export class TheradingComponent implements OnInit {
     this.serviceName=ser;
   }
   checkOrder(){
-   
+    this._therading.getBleachOrder(this.itemSelected,this.totalprice,this.totaltime,this.serviceName)
   }
   goToHome(){
     this._router.navigate(['/'])

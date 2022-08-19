@@ -1,0 +1,54 @@
+<div class="container">
+    <mat-card>
+      <mat-card-content>
+        <form #package="ngForm">
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col"></th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Descriptiion</th>
+                  <th scope="col">Time(min)</th>
+                  <th scope="col">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of spa; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>
+                    <mat-checkbox
+                      name="{{ item }}"
+                      value="{{ item.name }} {{ item.price }}"
+                      [(ngModel)]="item.isSelected"
+                      (change)="onchange($event)"
+                    ></mat-checkbox>
+                  </td>
+                  <td>{{ item.name }}</td>
+                  <td>{{item.description}}</td>
+                  <td>{{ item.time }}</td>
+                  <td>{{ item.price }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <ul class="checklist">
+            <li>Total Price : {{ totalprice }}&#x20B9;</li>
+            <li>
+              Total Time : <time>{{ totaltime }}</time
+              >(in Minute)
+            </li>
+          </ul>
+          <button
+            class="btn btn-primary"
+            (click)="servicename('Spa'); checkOrder()"
+          >
+            Add To Cart
+          </button>
+        </form>
+      </mat-card-content>
+      <a (click)="goToHome()"><i class="fa-solid fa-backward"></i></a>
+    </mat-card>
+  </div>
+  
